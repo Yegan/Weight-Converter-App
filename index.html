@@ -29,7 +29,7 @@ body{
     <div class="container">
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 offset-md-3">
                 <h1 class="display-5 text center mb-3">Weight Converter</h1>
 
                 <form>
@@ -40,7 +40,7 @@ body{
 
                 </form>
 
-                <div id="ouput">
+                <div id="output">
 
                     <div class="card bg-primary mb-2">
                         <div class="card-block">
@@ -80,12 +80,16 @@ body{
     </div>
 
     <script>
+document.getElementById("output").style.visibility = 'hidden';
+
     document.getElementById("lbsInput").addEventListener('input', function(e){
+        document.getElementById("output").style.visibility = 'visible';
+
         let lbs = e.target.value;
     
-    document.getElementById("gramsOutput").innerHTML = lbs/0.002046;
-    document.getElementById("kgOutput").innerHTML = lbs/2.2046;
-    document.getElementById("ozOutput").innerHTML = lbs * 16;
+    document.getElementById("gramsOutput").innerHTML = (lbs/0.002046).toFixed(2);;
+    document.getElementById("kgOutput").innerHTML = (lbs/2.2046).toFixed(2);
+    document.getElementById("ozOutput").innerHTML = (lbs * 16).toFixed(2);
 
 
     });
